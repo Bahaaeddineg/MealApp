@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:mealapp/data/data.dart';
 import 'package:mealapp/widgets/eachMeal.dart';
@@ -25,7 +26,7 @@ class Meals extends StatelessWidget {
                   price: e.price,
                   mealName: e.mealName,
                   time: e.time,
-                  image: e.image))
+                  image: e.image,id: e.id,))
               .toList()),
     );
   }
