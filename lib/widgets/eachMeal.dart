@@ -17,15 +17,17 @@ class EachMeal extends StatelessWidget {
     void selectedFood(BuildContext ctx){
         Navigator.of(ctx).pushNamed('mealDetails',arguments: {
           'image':image,
-          'mealName':mealName
+          'mealName':mealName,
+          'price':price,
+          'time':time,
         });
     }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.all(10),
-        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
             color: Colors.amber, borderRadius: BorderRadius.circular(20)),
         child: InkWell(
@@ -33,15 +35,18 @@ class EachMeal extends StatelessWidget {
           child: Column(children: [
             SizedBox(
                 width: double.infinity,
-                child: Image.asset(
-                  'assets/images/$image',
-                  fit: BoxFit.fill,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/images/$image',
+                    fit: BoxFit.fill,
+                  ),
                 )),
             Text(
               mealName,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 32,
+                fontSize: 22,
                 fontFamily: 'Sigmar',
               ),
             ),
@@ -56,7 +61,7 @@ class EachMeal extends StatelessWidget {
                   '$time minutes',
                   style: const TextStyle(
                       fontFamily: 'Manrope',
-                      fontSize: 18,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
@@ -74,7 +79,7 @@ class EachMeal extends StatelessWidget {
                 Text('$price DZD',
                     style: const TextStyle(
                         fontFamily: 'Manrope',
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold))
               ],
             ),

@@ -32,16 +32,15 @@ class CategoryItem extends StatelessWidget {
                       'assets/images/$image',
                       fit: BoxFit.cover,
                     ))),
-            Hero(
-              tag: 'ok',
-              child: Text(
+            
+              Text(
                 category,
                 style: const TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontFamily: 'Sigmar',
                 ),
               ),
-            ),
+            
           ])),
     );
   }

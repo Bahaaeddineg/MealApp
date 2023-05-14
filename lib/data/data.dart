@@ -29,6 +29,13 @@ List meals_list = [
   MealInfo(mealName: 'Zlabiya', price: 50, time: 0,image: 'zlabiya.jpg',id: '10'),
   MealInfo(mealName: 'Kunafa', price: 200 , time: 0,image: 'kunafa.jpg',id: '10'),
   MealInfo(mealName: 'Khobz El Bey', price: 150 , time: 0,image: 'khobzElBey.jpg',id: '10'),
+];
+List details=[
+  MealDetails(ingredients:"-Thon\n -Farina \n zitoun", country:'Algeria', mealName: 'Pizza thon'),
+  MealDetails(ingredients:"1) Pate à pizza\n2) Sauce tomate\n3) gruyere rapé\n4) Huile d'olive\n5) Poivre\n6) Sel\n7) 250g de boeuf haché", country:'Algeria',mealName: 'Pizza viande'),
+  MealDetails(ingredients:'ok', country:'Algeria',mealName: 'Sandwitch chawarma'),
+  MealDetails(ingredients:'ok', country:'Algeria',mealName:'Hamburger au poulet' ),
+  MealDetails(ingredients:'ok', country:'Algeria',mealName: 'Bourek'),
 
 
 ];
@@ -46,5 +53,14 @@ class MealInfo {
   final int time;
   final String image;
   final String id ;
+ 
   MealInfo({required this.mealName, required this.price, required this.time,required this.image,required this.id});
+}
+
+class MealDetails{  
+  final String mealName; 
+   
+    final String ingredients;
+    final String country ;
+    MealDetails({required this.mealName, required this.ingredients,  required this.country,});
 }

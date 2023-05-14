@@ -9,13 +9,16 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: EasySplashScreen(
-        logoWidth:150 ,
-          durationInSeconds: 3,
-          backgroundColor: Colors.amber,
-          navigator: const Home(),
-          logo: Image.asset('assets/images/logo.png')),
+    return  Scaffold(
+        body: EasySplashScreen(
+                logoWidth:200 ,
+                  durationInSeconds:5,
+                  backgroundColor: Colors.amber,
+                  navigator: const Home(),
+                  logo: Image.asset('assets/images/logo.png',fit: BoxFit.cover,))
+            
+              
+     
     );
   }
 }
