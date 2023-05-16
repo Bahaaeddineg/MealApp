@@ -13,22 +13,22 @@ final List categories_list = [
 ];
 // ignore: non_constant_identifier_names
 List meals_list = [
-  MealInfo(mealName: 'Pizza thon', price: 200 , time: 15,image: 'pizzaThon.jpg',id: '3'),
-  MealInfo(mealName: 'Pizza viande', price: 200 , time: 15,image: 'pizzaViande.jpg',id: '3'),
-  MealInfo(mealName: 'Pizza poulet', price: 200 , time: 15,image: 'pizzaPoulet.jpg',id: '3'),
-  MealInfo(mealName: 'Sandwitch chawarma', price: 250 , time: 10,image: 'sandwitchCat.jpg',id: '1'),
-  MealInfo(mealName: 'Sandwitch escalope', price: 250 , time: 10,image: 'sandEscalope.jpg',id: '1'),
-  MealInfo(mealName: 'Sandwitch mariné', price: 250 , time: 10,image: 'sandMariné.jpg',id: '1'),
-  MealInfo(mealName: 'Hamburger au poulet', price: 300 , time: 8,image: 'hamPoulet.jpg',id: '2'),
-  MealInfo(mealName: 'Hamburger au fromage', price: 300 , time: 5,image: 'HamFrom.jpg',id: '2'),
-  MealInfo(mealName: 'Salade au poulet', price: 200, time: 8,image: 'salade1.jpg',id: '5'),
-  MealInfo(mealName: 'Salade au thon', price: 120 , time: 5,image: 'salade2.jpg',id: '5'),
-  MealInfo(mealName: 'Plat frite', price: 100 , time: 5,image: 'platPomme.jpg',id: '4'),
-  MealInfo(mealName: 'Plat frite omelette', price: 120 , time: 10,image: 'omelette.jpg',id: '4'),
-  MealInfo(mealName: 'Soufflé au fromage', price: 50 , time: 5,image: 'souffletFrom.jpg',id: '6'),
-  MealInfo(mealName: 'Zlabiya', price: 50, time: 0,image: 'zlabiya.jpg',id: '10'),
-  MealInfo(mealName: 'Kunafa', price: 200 , time: 0,image: 'kunafa.jpg',id: '10'),
-  MealInfo(mealName: 'Khobz El Bey', price: 150 , time: 0,image: 'khobzElBey.jpg',id: '10'),
+  MealInfo(mealName: 'Pizza thon', price: 200 , time: 15,image: 'pizzaThon.jpg',id: '3',vegan:false,vegetarian:true,gluten_free:false),
+  MealInfo(mealName: 'Pizza viande', price: 200 , time: 15,image: 'pizzaViande.jpg',id: '3', gluten_free: false,vegetarian:false,vegan:false),
+  MealInfo(mealName: 'Pizza poulet', price: 200 , time: 15,image: 'pizzaPoulet.jpg',id: '3', gluten_free: false,vegetarian:false,vegan:false),
+  MealInfo(mealName: 'Sandwitch chawarma', price: 250 , time: 10,image: 'sandwitchCat.jpg',id: '1', gluten_free: false,vegetarian:true,vegan:false),
+  MealInfo(mealName: 'Sandwitch escalope', price: 250 , time: 10,image: 'sandEscalope.jpg',id: '1', gluten_free: false,vegetarian:true,vegan:false),
+  MealInfo(mealName: 'Sandwitch mariné', price: 250 , time: 10,image: 'sandMariné.jpg',id: '1', gluten_free: false,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Hamburger au poulet', price: 300 , time: 8,image: 'hamPoulet.jpg',id: '2', gluten_free: false,vegetarian:false,vegan:false),
+  MealInfo(mealName: 'Hamburger au fromage', price: 300 , time: 5,image: 'HamFrom.jpg',id: '2', gluten_free: false,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Salade au poulet', price: 200, time: 8,image: 'salade1.jpg',id: '5', gluten_free: true,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Salade au thon', price: 120 , time: 5,image: 'salade2.jpg',id: '5', gluten_free: true,vegetarian:true,vegan:false),
+  MealInfo(mealName: 'Plat frite', price: 100 , time: 5,image: 'platPomme.jpg',id: '4', gluten_free: false,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Plat frite omelette', price: 120 , time: 10,image: 'omelette.jpg',id: '4', gluten_free: true,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Soufflé au fromage', price: 50 , time: 5,image: 'souffletFrom.jpg',id: '6', gluten_free: false,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Zlabiya', price: 50, time: 0,image: 'zlabiya.jpg',id: '10', gluten_free: true,vegetarian:true,vegan:true),
+  MealInfo(mealName: 'Kunafa', price: 200 , time: 0,image: 'kunafa.jpg',id: '10', gluten_free: true,vegetarian:true,vegan:true,),
+  MealInfo(mealName: 'Khobz El Bey', price: 150 , time: 0,image: 'khobzElBey.jpg',id: '10', gluten_free: false,vegetarian:true,vegan:true)
 ];
 List details=[
   MealDetails(ingredients:"-Thon\n -Farina \n zitoun", country:'Algeria', mealName: 'Pizza thon'),
@@ -39,6 +39,11 @@ List details=[
 
 
 ];
+bool vegetarian = false;
+bool vegan=false;
+bool gluten=false;
+
+
 
 class Categories {
   final String category;
@@ -53,8 +58,10 @@ class MealInfo {
   final int time;
   final String image;
   final String id ;
- 
-  MealInfo({required this.mealName, required this.price, required this.time,required this.image,required this.id});
+  final bool vegetarian;
+  final bool vegan;
+  final bool gluten_free;
+  MealInfo({required this.vegetarian,required  this.vegan, required this.mealName, required this.price, required this.time,required this.image,required this.id, required this.gluten_free});
 }
 
 class MealDetails{  

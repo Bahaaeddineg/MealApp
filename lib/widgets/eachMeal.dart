@@ -6,22 +6,25 @@ class EachMeal extends StatelessWidget {
   final int time;
   final String image;
   final String id;
+  
   const EachMeal({
     super.key,
     required this.price,
     required this.mealName,
     required this.time,
-    required this.image, required this.id,
+    required this.image,
+    required this.id,
   });
 
-    void selectedFood(BuildContext ctx){
-        Navigator.of(ctx).pushNamed('mealDetails',arguments: {
-          'image':image,
-          'mealName':mealName,
-          'price':price,
-          'time':time,
-        });
-    }
+  void selectedFood(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed('mealDetails', arguments: {
+      'image': image,
+      'mealName': mealName,
+      'price': price,
+      'time': time,
+      'id':id,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

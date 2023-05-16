@@ -22,7 +22,7 @@ class CustomDrawer extends StatelessWidget {
                           fontSize: 40))),
             ),
             const Divider(color: Colors.black,),
-            DrawerTile('Filter',Icons.settings,(){Navigator.of(context).pushReplacementNamed('filter');}),
+            DrawerTile('anything',Icons.settings,(){}),
             DrawerTile('Categories',Icons.category,(){Navigator.of(context).pushReplacementNamed('category');}),
           ]),
         ));

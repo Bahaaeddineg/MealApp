@@ -1,8 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:mealapp/data/data.dart';
 import '../widgets/categoriesGrid.dart';
 import '../widgets/drawer.dart';
 import '../widgets/favourites.dart';
+import 'filter.dart';
 
 class Home extends StatefulWidget {
   final String name='category';
@@ -15,12 +17,16 @@ class Home extends StatefulWidget {
 List widgets = [
   {'page': CategoriesScreen(), 'title': 'Foods'},
   {'page': const Favourites(), 'title': 'Favourite foods'},
-  {'page': const Favourites(), 'title': 'Favourite foods'},
+  {'page': Filter(), 'title': 'Filter'},
   {'page': const Favourites(), 'title': 'Favourite foods'},
 ];
 
+
 class _HomeState extends State<Home> {
   int selectedWidgetIndex = 0;
+
+
+
   void selectedWidget(int value) {
     setState(() {
       selectedWidgetIndex = value;
