@@ -16,9 +16,6 @@ class SplashScreen extends StatelessWidget {
                   backgroundColor: Colors.amber,
                   navigator: const Home(),
                   logo: Image.asset('assets/images/logo.png',fit: BoxFit.cover,))
-            
-              
-     
     );
   }
 }

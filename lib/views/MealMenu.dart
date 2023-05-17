@@ -12,7 +12,7 @@ class Meals extends StatefulWidget {
 
 class _MealsState extends State<Meals> {
   final String name = 'meal';
-
+  
   @override
   Widget build(BuildContext context) {
     final Map arg = ModalRoute.of(context)?.settings.arguments as Map;
@@ -35,6 +35,7 @@ class _MealsState extends State<Meals> {
                     time: e.time,
                     image: e.image,
                     id: e.id,
+                   
                   ))
               .toList()),
     );

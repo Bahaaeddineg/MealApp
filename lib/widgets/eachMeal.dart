@@ -1,28 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:mealapp/data/data.dart';
+import 'package:mealapp/widgets/favourites.dart';
 
-class EachMeal extends StatelessWidget {
+class EachMeal extends StatefulWidget {
   final int price;
+  late int index ;
   final String mealName;
   final int time;
   final String image;
   final String id;
   
-  const EachMeal({
+  EachMeal({
     super.key,
     required this.price,
     required this.mealName,
     required this.time,
     required this.image,
     required this.id,
+ 
   });
 
+  @override
+  State<EachMeal> createState() => _EachMealState();
+}
+
+class _EachMealState extends State<EachMeal> {
   void selectedFood(BuildContext ctx) {
     Navigator.of(ctx).pushNamed('mealDetails', arguments: {
-      'image': image,
-      'mealName': mealName,
-      'price': price,
-      'time': time,
-      'id':id,
+      'image': widget.image,
+      'mealName': widget.mealName,
+      'price': widget.price,
+      'time': widget.time,
+      'id':widget.id,
+    });
+  }
+
+  void likeFood(String id){
+    setState(() {
+      widget.index=meals_list.indexWhere((element) =>element.id==id);
+      favouritesList.add(meals_list[widget.index]);
     });
   }
 
@@ -41,12 +57,12 @@ class EachMeal extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    'assets/images/$image',
+                    'assets/images/${widget.image}',
                     fit: BoxFit.fill,
                   ),
                 )),
             Text(
-              mealName,
+              widget.mealName,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 22,
@@ -61,7 +77,7 @@ class EachMeal extends StatelessWidget {
                   size: 30,
                 ),
                 Text(
-                  '$time minutes',
+                  '${widget.time} minutes',
                   style: const TextStyle(
                       fontFamily: 'Manrope',
                       fontSize: 14,
@@ -79,7 +95,7 @@ class EachMeal extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text('$price DZD',
+                Text('${widget.price} DZD',
                     style: const TextStyle(
                         fontFamily: 'Manrope',
                         fontSize: 14,
@@ -88,17 +104,17 @@ class EachMeal extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                Icon(Icons.food_bank, size: 40, color: Colors.red),
-                Icon(Icons.monetization_on_outlined,
+              children:  [
+                const Icon(Icons.food_bank, size: 40, color: Colors.red),
+                const Icon(Icons.monetization_on_outlined,
                     size: 40, color: Colors.green),
-                Icon(
+                const Icon(
                   Icons.recommend,
                   size: 40,
                   semanticLabel: 'recommend',
                   color: Colors.yellow,
                 ),
-                Icon(Icons.star, size: 40, color: Colors.yellow),
+                InkWell(onTap:()=>likeFood(widget.id),child: const Icon(Icons.star, size: 40, color: Colors.yellow)),
               ],
             )
           ]),

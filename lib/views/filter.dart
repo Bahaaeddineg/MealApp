@@ -57,8 +57,7 @@ class _FilterState extends State<Filter> {
                     setState(() {
                       gluten= value;
                     });
-                  }),
-                  
+                  }),  
             ],
           ),
         ),

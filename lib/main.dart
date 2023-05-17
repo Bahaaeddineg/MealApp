@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mealapp/views/filter.dart';
 import 'package:mealapp/views/homePage.dart';
 import 'package:mealapp/views/mealScr.dart';
 import 'views/splashScreen.dart';
 import 'views/MealMenu.dart';
+
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +17,6 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         'meal': (context) => Meals(),
         'mealDetails':(context)=> Details(),
-        
         'category':(context)=>const Home(),
       },
     );
