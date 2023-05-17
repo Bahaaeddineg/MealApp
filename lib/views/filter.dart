@@ -3,7 +3,7 @@ import 'package:mealapp/widgets/drawer.dart';
 
 import '../data/data.dart';
 
-List meals_list_updated = meals_list;
+List mealsListUpdated = meals_list;
 
 class Filter extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _FilterState extends State<Filter> {
   final String name = 'filter';
   void setFilters() {
     setState(() {
-      meals_list_updated = meals_list.where((element) {
+      mealsListUpdated = meals_list.where((element) {
         if (vegetarian && !element.vegetarian) return false;
         if (vegan && !element.vegan) return false;
         if (gluten && !element.gluten_free) return false;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mealapp/data/data.dart';
-import 'package:mealapp/widgets/favourites.dart';
 
 class EachMeal extends StatefulWidget {
   final int price;
@@ -9,7 +8,7 @@ class EachMeal extends StatefulWidget {
   final int time;
   final String image;
   final String id;
-  
+
   EachMeal({
     super.key,
     required this.price,
@@ -17,7 +16,6 @@ class EachMeal extends StatefulWidget {
     required this.time,
     required this.image,
     required this.id,
-  
   });
 
   @override
@@ -32,23 +30,35 @@ class _EachMealState extends State<EachMeal> {
       'price': widget.price,
       'time': widget.time,
       'id': widget.id,
-      
     });
   }
 
-void likeFood(String id) {
-      widget.index = meals_list.indexWhere((element) => element.id == id);
-      if (!favouritesList.contains(meals_list[widget.index])){
+  void likeFood(String id) {
+    widget.index = meals_list.indexWhere((element) => element.id == id);
+    if (!favouritesList.contains(meals_list[widget.index])) {
       setState(() {
-        favouritesList.add(meals_list.firstWhere((element) => element.id == id));
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(duration :Duration(seconds: 1),content: Text('Element added to favourites successfuly',textAlign: TextAlign.center,),));
+        favouritesList
+            .add(meals_list.firstWhere((element) => element.id == id));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          duration: Duration(seconds: 2),
+          content: Text(
+            'Element added to favourites successfuly',
+            textAlign: TextAlign.center,
+          ),
+        ));
       });
-      }else {
-        setState(() {
-          favouritesList.removeWhere((element) => element.id == id);
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(duration: Duration(seconds: 1),content: Text('Element removed from favourites successfuly',textAlign: TextAlign.center,),));
-        });
-      }
+    } else {
+      setState(() {
+        favouritesList.removeWhere((element) => element.id == id);
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          duration: Duration(seconds: 2),
+          content: Text(
+            'Element removed from favourites successfuly',
+            textAlign: TextAlign.center,
+          ),
+        ));
+      });
+    }
   }
 
   @override

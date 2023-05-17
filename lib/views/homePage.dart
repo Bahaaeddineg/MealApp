@@ -17,7 +17,6 @@ List widgets = [
   {'page': CategoriesScreen(), 'title': 'Foods'},
   {'page': const Favourites(), 'title': 'Favourite foods'},
   {'page': Filter(), 'title': 'Filter'},
-  
 ];
 
 class _HomeState extends State<Home> {

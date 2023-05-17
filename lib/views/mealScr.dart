@@ -3,7 +3,7 @@ import 'package:mealapp/data/data.dart';
 
 class Details extends StatelessWidget {
   final name = 'mealDetails';
-  
+
   @override
   Widget build(BuildContext context) {
     final Map arg = ModalRoute.of(context)?.settings.arguments as Map;
@@ -11,13 +11,15 @@ class Details extends StatelessWidget {
     final price = arg['price'];
     final image = arg['image'];
     final time = arg['time'];
-    final id= arg['id'];
+    final id = arg['id'];
     MealDetails detailsObject =
         details.firstWhere((element) => element.mealName == mealName);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.of(context).pop(id);
-      },child: const Icon(Icons.delete)),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).pop(id);
+          },
+          child: const Icon(Icons.delete)),
       appBar: AppBar(
           centerTitle: true,
           title: Text(

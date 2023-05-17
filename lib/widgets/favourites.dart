@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mealapp/data/data.dart';
-
+import '../data/data.dart';
 import 'eachMeal.dart';
 
 class Favourites extends StatelessWidget {
   const Favourites({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return favouritesList.length == 0
+    return favouritesList.isEmpty
         ? const Center(
             child: Text(
-                "You have no favourite food ! Go dicover the available food !",textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),))
+            "You have no favourite food ! Go dicover the available food !",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+          ))
         : ListView(
             children: favouritesList
                 .map((e) => EachMeal(
