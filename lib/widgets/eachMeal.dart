@@ -4,7 +4,7 @@ import 'package:mealapp/widgets/favourites.dart';
 
 class EachMeal extends StatefulWidget {
   final int price;
-  late int index ;
+  late int index;
   final String mealName;
   final int time;
   final String image;
@@ -17,7 +17,7 @@ class EachMeal extends StatefulWidget {
     required this.time,
     required this.image,
     required this.id,
- 
+  
   });
 
   @override
@@ -31,15 +31,24 @@ class _EachMealState extends State<EachMeal> {
       'mealName': widget.mealName,
       'price': widget.price,
       'time': widget.time,
-      'id':widget.id,
+      'id': widget.id,
+      
     });
   }
 
-  void likeFood(String id){
-    setState(() {
-      widget.index=meals_list.indexWhere((element) =>element.id==id);
-      favouritesList.add(meals_list[widget.index]);
-    });
+void likeFood(String id) {
+      widget.index = meals_list.indexWhere((element) => element.id == id);
+      if (!favouritesList.contains(meals_list[widget.index])){
+      setState(() {
+        favouritesList.add(meals_list.firstWhere((element) => element.id == id));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(duration :Duration(seconds: 1),content: Text('Element added to favourites successfuly',textAlign: TextAlign.center,),));
+      });
+      }else {
+        setState(() {
+          favouritesList.removeWhere((element) => element.id == id);
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(duration: Duration(seconds: 1),content: Text('Element removed from favourites successfuly',textAlign: TextAlign.center,),));
+        });
+      }
   }
 
   @override
@@ -104,7 +113,7 @@ class _EachMealState extends State<EachMeal> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:  [
+              children: [
                 const Icon(Icons.food_bank, size: 40, color: Colors.red),
                 const Icon(Icons.monetization_on_outlined,
                     size: 40, color: Colors.green),
@@ -114,7 +123,10 @@ class _EachMealState extends State<EachMeal> {
                   semanticLabel: 'recommend',
                   color: Colors.yellow,
                 ),
-                InkWell(onTap:()=>likeFood(widget.id),child: const Icon(Icons.star, size: 40, color: Colors.yellow)),
+                InkWell(
+                    onTap: () => likeFood(widget.id),
+                    child:
+                        const Icon(Icons.star, size: 40, color: Colors.yellow)),
               ],
             )
           ]),
