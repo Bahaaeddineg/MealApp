@@ -6,6 +6,8 @@ import '../data/data.dart';
 List mealsListUpdated = meals_list;
 
 class Filter extends StatefulWidget {
+  const Filter({super.key});
+
   @override
   State<Filter> createState() => _FilterState();
 }

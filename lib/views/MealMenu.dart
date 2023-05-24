@@ -5,6 +5,8 @@ import 'package:mealapp/widgets/eachMeal.dart';
 import 'filter.dart';
 
 class Meals extends StatefulWidget {
+  const Meals({super.key});
+
   @override
   State<Meals> createState() => _MealsState();
 }

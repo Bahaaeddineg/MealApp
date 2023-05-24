@@ -4,6 +4,8 @@ import 'package:mealapp/data/data.dart';
 class Details extends StatelessWidget {
   final name = 'mealDetails';
 
+  const Details({super.key});
+
   @override
   Widget build(BuildContext context) {
     final Map arg = ModalRoute.of(context)?.settings.arguments as Map;

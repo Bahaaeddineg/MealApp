@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(primarySwatch: Colors.amber),
         routes: {
           '/': (context) => const SplashScreen(),
-          'meal': (context) => Meals(),
-          'mealDetails': (context) => Details(),
+          'meal': (context) => const Meals(),
+          'mealDetails': (context) => const Details(),
           'category': (context) => const Home(),
         },
       ),

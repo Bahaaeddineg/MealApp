@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mealapp/data/data.dart';
 
+// ignore: must_be_immutable
 class EachMeal extends StatefulWidget {
   final int price;
   late int index;

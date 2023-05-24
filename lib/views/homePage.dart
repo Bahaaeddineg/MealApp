@@ -35,6 +35,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         backgroundColor: Provider.of<MyProvider>(context).mode,
         appBar: AppBar(
+
           title: Text(
             widgets[selectedWidgetIndex]["title"],
             style: const TextStyle(fontSize: 25, fontFamily: 'Sigmar'),
